@@ -153,7 +153,6 @@ shape = SubResource( 18 )
 [node name="Sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 17 )
 animation = "Walk-Down"
-frame = 1
 playing = true
 
 [node name="HitBox" type="Area2D" parent="."]
