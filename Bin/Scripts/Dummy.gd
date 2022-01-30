@@ -23,9 +23,6 @@ func _process(delta):
 		return
 	DPS_time += delta
 
-func _input(event):
-	if Input.is_key_pressed(KEY_SPACE):
-		_Take_Damage(10)
 
 func _DPSTimer_timeout():
 	DamagePerSecond = 0.00

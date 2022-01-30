@@ -1,15 +1,15 @@
 extends KinematicBody2D
 
-onready var AnimPlayer = $Sprite
+onready var AnimPlayer = $YSort/SpriteHolder/Sprite
 
 var Velocity = Vector2.ZERO
-var Speed = 100
+var Speed = 200
 
 func _input(_event):
 	if Input.is_key_pressed(KEY_SHIFT):
 		Speed = 300
 	else:
-		Speed = 100
+		Speed = 200
 
 func _Move():
 	move_and_slide(Velocity)
@@ -37,6 +37,27 @@ func _Play_Animation(State:String):
 
 func _Flip():
 	if Input.is_action_just_pressed("Left"):
-		$Sprite.flip_h = false
+		$YSort/SpriteHolder/Sprite.flip_h = false
 	if Input.is_action_just_pressed("Right"):
-		$Sprite.flip_h = true
+		$YSort/SpriteHolder/Sprite.flip_h = true
+
+onready var HurtBox = $YSort/WeaponPosition/HurtBox
+onready var HurtBoxCollision = $YSort/WeaponPosition/HurtBox/Collision
+onready var AttackTween = $AttackTween
+var isAttacking = false
+func _Attack():
+	var rotDir = 2
+	if $YSort/WeaponPosition.Flipped == true: rotDir = -2
+	if $YSort/WeaponPosition.Flipped == false: rotDir = 2
+	isAttacking = true
+	AttackTween.interpolate_property($YSort/WeaponPosition,"rotation",0,
+									rotDir,0.2,Tween.TRANS_LINEAR,Tween.EASE_OUT)
+	AttackTween.start()
+	yield(get_tree().create_timer(0.05),"timeout")
+	print(HurtBox.get_overlapping_areas())
+	if HurtBox.get_overlapping_areas().size() > 0:
+		for x in HurtBox.get_overlapping_areas():
+			if x.is_in_group("EnemyHitBox"):
+				x.get_parent()._Take_Damage(10)
+	yield(get_tree().create_timer(0.3),"timeout")
+	isAttacking = false

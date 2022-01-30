@@ -23,9 +23,10 @@ script = ExtResource( 2 )
 position = Vector2( 0, -2 )
 shape = SubResource( 3 )
 
-[node name="HitBox" type="Area2D" parent="."]
-visible = false
+[node name="HitBox" type="Area2D" parent="." groups=["EnemyHitBox"]]
 position = Vector2( 0, -14 )
+collision_layer = 64
+collision_mask = 4
 
 [node name="Collision" type="CollisionShape2D" parent="HitBox"]
 position = Vector2( 0, -4 )

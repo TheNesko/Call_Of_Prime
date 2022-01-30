@@ -3,7 +3,8 @@ onready var parent = get_parent()
 
 enum States {
 	Idle,
-	Walk
+	Walk,
+	Attack
 }
 
 var PreviousState = null
@@ -32,9 +33,18 @@ func _State_Checker():
 		States.Idle:
 			if parent.Velocity != Vector2.ZERO:
 				return States.Walk
+			if Input.is_action_pressed("Attack"):
+				return States.Attack
 		States.Walk:
 			if parent.Velocity == Vector2.ZERO:
 				return States.Idle
+			if Input.is_action_pressed("Attack"):
+				return States.Attack
+		States.Attack:
+			if parent.isAttacking == false and parent.Velocity == Vector2.ZERO:
+				return States.Idle
+			if parent.isAttacking == false and parent.Velocity != Vector2.ZERO:
+				return States.Walk
 	return null
 
 func _Update_State(NextState) -> void:
@@ -52,6 +62,8 @@ func _Enter_State() -> void:
 			print("Idle")
 		States.Walk:
 			print("Walk")
+		States.Attack:
+			parent._Attack()
 
 func _Exit_State() -> void:
 	match PreviousState:
