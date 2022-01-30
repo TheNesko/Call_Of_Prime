@@ -30,7 +30,13 @@ func _Check_Direction() -> String:
 		return "Left"
 	return LastDirection
 
-func _Play_Animation(State:String,WalkDirection:String):
-	var NextAnim = str(State,"-",WalkDirection)
+func _Play_Animation(State:String):
+	var NextAnim = str(State)
 	if AnimPlayer.animation == NextAnim: return
-	AnimPlayer.animation = str(State,"-",WalkDirection)
+	AnimPlayer.animation = str(State)
+
+func _Flip():
+	if Input.is_action_just_pressed("Left"):
+		$Sprite.flip_h = false
+	if Input.is_action_just_pressed("Right"):
+		$Sprite.flip_h = true

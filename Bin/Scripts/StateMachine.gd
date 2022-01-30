@@ -12,15 +12,17 @@ export (States) var State = States.Idle
 func _process(_delta) -> void:
 	_Update_State(_State_Checker())
 	
-	parent.Velocity.x = Input.get_axis("Left","Right")*parent.Speed
-	parent.Velocity.y = Input.get_axis("Up","Down")*parent.Speed
+	parent._Flip()
+	
+	parent.Velocity.x = Input.get_axis("Left","Right")
+	parent.Velocity.y = Input.get_axis("Up","Down")
+	parent.Velocity = parent.Velocity.normalized()*parent.Speed
 	
 	match State:
 		States.Idle:
-			parent._Play_Animation("Idle",parent._Check_Direction())
+			parent._Play_Animation("Idle")
 		States.Walk:
-			parent._Play_Animation("Walk",parent._Check_Direction())
-
+			parent._Play_Animation("Walk")
 
 func _physics_process(_delta) -> void:
 	parent._Move()
