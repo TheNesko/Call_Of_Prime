@@ -58,53 +58,66 @@ script = ExtResource( 1 )
 script = ExtResource( 3 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 0, -12 )
 current = true
 zoom = Vector2( 0.4, 0.4 )
 
 [node name="HitBox" type="Area2D" parent="."]
-position = Vector2( 0, -12 )
 collision_layer = 8
 collision_mask = 32
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Collision" type="CollisionShape2D" parent="HitBox"]
 position = Vector2( 0.5, -0.5 )
 shape = SubResource( 24 )
 
 [node name="WorldCollision" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 12 )
 rotation = 1.5708
 shape = SubResource( 25 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="AttackTween" type="Tween" parent="."]
+[node name="AttackRotation" type="Tween" parent="."]
+
+[node name="AttackPosition" type="Tween" parent="."]
 
 [node name="YSort" type="YSort" parent="."]
+position = Vector2( 0, 12 )
 
 [node name="WeaponPosition" type="Node2D" parent="YSort"]
-position = Vector2( 8, -10 )
+position = Vector2( 16, -12 )
 script = ExtResource( 5 )
 
-[node name="HurtBox" type="Area2D" parent="YSort/WeaponPosition"]
-position = Vector2( 9.06174, -9.04903 )
-rotation = 0.785398
+[node name="RotationManager" type="Node2D" parent="YSort/WeaponPosition"]
+position = Vector2( -9.53674e-07, -3.8147e-06 )
+scale = Vector2( 1, 1 )
+
+[node name="Sprite" type="Sprite" parent="YSort/WeaponPosition/RotationManager"]
+position = Vector2( -12, 3 )
+rotation = -2.61799
+scale = Vector2( 1, 1 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="HurtBox" type="Area2D" parent="YSort/WeaponPosition/RotationManager"]
+position = Vector2( -18, 4 )
+rotation = 1.309
+scale = Vector2( 1, 1 )
 collision_layer = 4
 collision_mask = 64
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Collision" type="CollisionShape2D" parent="YSort/WeaponPosition/HurtBox"]
+[node name="Collision" type="CollisionShape2D" parent="YSort/WeaponPosition/RotationManager/HurtBox"]
 position = Vector2( -1.90735e-06, 1.49254 )
 shape = SubResource( 23 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Sprite" type="Sprite" parent="YSort/WeaponPosition"]
-position = Vector2( 7, -7 )
-texture = ExtResource( 4 )
+disabled = true
 __meta__ = {
 "_edit_lock_": true
 }
@@ -120,3 +133,5 @@ flip_h = true
 __meta__ = {
 "_edit_lock_": true
 }
+
+[connection signal="area_entered" from="YSort/WeaponPosition/RotationManager/HurtBox" to="." method="_on_HurtBox"]

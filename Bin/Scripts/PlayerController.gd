@@ -36,28 +36,35 @@ func _Play_Animation(State:String):
 	AnimPlayer.animation = str(State)
 
 func _Flip():
-	if Input.is_action_just_pressed("Left"):
+	var MousePosition = get_viewport().get_mouse_position()
+	var PlayerPoz = self.get_global_transform_with_canvas()
+	var MouseToPlayer = MousePosition - PlayerPoz.get_origin()
+	if MouseToPlayer.x < 0:
 		$YSort/SpriteHolder/Sprite.flip_h = false
-	if Input.is_action_just_pressed("Right"):
+	else:
 		$YSort/SpriteHolder/Sprite.flip_h = true
 
-onready var HurtBox = $YSort/WeaponPosition/HurtBox
-onready var HurtBoxCollision = $YSort/WeaponPosition/HurtBox/Collision
-onready var AttackTween = $AttackTween
-var isAttacking = false
+onready var HurtBox = $YSort/WeaponPosition/RotationManager/HurtBox
+onready var HurtBoxCollision = $YSort/WeaponPosition/RotationManager/HurtBox/Collision
+onready var RotationManager = $YSort/WeaponPosition/RotationManager
+onready var AttackRotation = $AttackRotation
+onready var AttackPosition = $AttackPosition
 func _Attack():
-	var rotDir = 2
-	if $YSort/WeaponPosition.Flipped == true: rotDir = -2
-	if $YSort/WeaponPosition.Flipped == false: rotDir = 2
-	isAttacking = true
-	AttackTween.interpolate_property($YSort/WeaponPosition,"rotation",0,
-									rotDir,0.2,Tween.TRANS_LINEAR,Tween.EASE_OUT)
-	AttackTween.start()
-	yield(get_tree().create_timer(0.05),"timeout")
-	print(HurtBox.get_overlapping_areas())
-	if HurtBox.get_overlapping_areas().size() > 0:
-		for x in HurtBox.get_overlapping_areas():
-			if x.is_in_group("EnemyHitBox"):
-				x.get_parent()._Take_Damage(10)
+	HurtBoxCollision.disabled = false
+	RotationManager.rotation = 0
+	var FinalPoz = (RotationManager.position+Vector2(10,5)).rotated(RotationManager.rotation)
+	var FinalRot = deg2rad(RotationManager.rotation_degrees+190)
+	AttackPosition.interpolate_property(RotationManager,"position",RotationManager.position,
+									FinalPoz,0.15,Tween.TRANS_LINEAR,Tween.EASE_OUT)
+	AttackRotation.interpolate_property(RotationManager,"rotation",RotationManager.rotation_degrees,
+									FinalRot,0.15,Tween.TRANS_LINEAR,Tween.EASE_OUT)
+	AttackRotation.start()
+	AttackPosition.start()
 	yield(get_tree().create_timer(0.3),"timeout")
-	isAttacking = false
+	HurtBoxCollision.disabled = true
+	RotationManager.position = Vector2.ZERO
+	RotationManager.rotation = 0
+
+
+func _on_HurtBox(area):
+	area.get_parent()._Take_Damage(10)

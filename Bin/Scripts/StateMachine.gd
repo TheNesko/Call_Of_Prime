@@ -41,9 +41,9 @@ func _State_Checker():
 			if Input.is_action_pressed("Attack"):
 				return States.Attack
 		States.Attack:
-			if parent.isAttacking == false and parent.Velocity == Vector2.ZERO:
+			if parent.HurtBoxCollision.disabled == true and parent.Velocity == Vector2.ZERO:
 				return States.Idle
-			if parent.isAttacking == false and parent.Velocity != Vector2.ZERO:
+			if parent.HurtBoxCollision.disabled == true and parent.Velocity != Vector2.ZERO:
 				return States.Walk
 	return null
 

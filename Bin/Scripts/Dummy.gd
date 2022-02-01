@@ -29,7 +29,6 @@ func _physics_process(delta):
 		return
 	DPS_time += delta
 
-
 func _DPSTimer_timeout():
 	DamagePerSecond = 0.00
 	DamageDone = 0.00
