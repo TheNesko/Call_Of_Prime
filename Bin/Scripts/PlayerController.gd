@@ -6,6 +6,10 @@ export var Velocity = Vector2.ZERO
 
 
 func _input(_event):
+	if Input.is_key_pressed(KEY_Q):
+		_Use_Ablility("Fireball")
+	if Input.is_key_pressed(KEY_E):
+		_Use_Ablility("Boulder")
 	if Input.is_key_pressed(KEY_SHIFT):
 		Stats.Speed = 300
 	else:
@@ -51,6 +55,7 @@ func _Flip():
 
 
 onready var Slash = preload("res://Bin/Scenes/Slash.tscn")
+onready var WeaponPosition = $YSort/WeaponPosition
 onready var HurtBox = $YSort/WeaponPosition/HurtBox
 onready var HurtBoxCollision = $YSort/WeaponPosition/HurtBox/Collision
 onready var RotationManager = $YSort/WeaponPosition/RotationManager
@@ -85,3 +90,9 @@ func _Attack():
 
 func _on_HurtBox(area):
 	area.get_parent()._Take_Damage(Stats.Damage)
+
+func _Use_Ablility(AbilityName:String):
+	for x in $Abilities.get_children():
+		if x.AbilityName == AbilityName:
+			if x.CooldownTimer.is_stopped():
+				x._Cast()

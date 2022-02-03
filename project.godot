@@ -9,12 +9,18 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Resource",
+"class": "CastAbilityData",
+"language": "GDScript",
+"path": "res://Bin/Scripts/Abilites/CastAbilityData.gd"
+}, {
 "base": "",
 "class": "GitAPI",
 "language": "NativeScript",
 "path": "res://addons/godot-git-plugin/git_api.gdns"
 } ]
 _global_script_class_icons={
+"CastAbilityData": "",
 "GitAPI": ""
 }
 
@@ -126,6 +132,7 @@ Attack={
 2d_physics/layer_5="Enemy"
 2d_physics/layer_6="EnemyHurtBox"
 2d_physics/layer_7="EnemyHitBox"
+2d_physics/layer_10="Projectiles"
 
 [physics]
 

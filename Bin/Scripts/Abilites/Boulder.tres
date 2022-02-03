@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Bin/Scripts/Abilites/CastAbilityData.gd" type="Script" id=1]
+[ext_resource path="res://Bin/Scenes/Abilites/FireballProjectile.tres" type="SpriteFrames" id=2]
+
+[resource]
+script = ExtResource( 1 )
+AbilityName = "Boulder"
+Damage = 60.0
+ProjectileSpeed = 100.0
+Cooldown = 5.0
+TravelTime = 3.0
+texture = ExtResource( 2 )

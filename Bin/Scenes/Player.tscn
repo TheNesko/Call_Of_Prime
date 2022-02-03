@@ -1,11 +1,14 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Bin/Scripts/PlayerController.gd" type="Script" id=1]
 [ext_resource path="res://Bin/Textures/Player/postacanimacja-sheet.png" type="Texture" id=2]
 [ext_resource path="res://Bin/Scripts/StateMachine.gd" type="Script" id=3]
 [ext_resource path="res://Bin/Textures/drewnianymiecz.png" type="Texture" id=4]
 [ext_resource path="res://Bin/Scripts/WeaponPosition.gd" type="Script" id=5]
-[ext_resource path="res://Bin/Scenes/PlayerStats.gd" type="Script" id=6]
+[ext_resource path="res://Bin/Scripts/PlayerStats.gd" type="Script" id=6]
+[ext_resource path="res://Bin/Scripts/Abilites/CastAbility.gd" type="Script" id=7]
+[ext_resource path="res://Bin/Scripts/Abilites/Boulder.tres" type="Resource" id=8]
+[ext_resource path="res://Bin/Scripts/Abilites/FireBallData.tres" type="Resource" id=9]
 
 [sub_resource type="RectangleShape2D" id=24]
 extents = Vector2( 7.5, 12.5 )
@@ -136,5 +139,21 @@ flip_h = true
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="Abilities" type="Node" parent="."]
+
+[node name="CastAbility" type="Node" parent="Abilities"]
+script = ExtResource( 7 )
+AbilityData = ExtResource( 9 )
+
+[node name="CooldownTimer" type="Timer" parent="Abilities/CastAbility"]
+one_shot = true
+
+[node name="CastAbility2" type="Node" parent="Abilities"]
+script = ExtResource( 7 )
+AbilityData = ExtResource( 8 )
+
+[node name="CooldownTimer" type="Timer" parent="Abilities/CastAbility2"]
+one_shot = true
 
 [connection signal="area_entered" from="YSort/WeaponPosition/HurtBox" to="." method="_on_HurtBox"]
