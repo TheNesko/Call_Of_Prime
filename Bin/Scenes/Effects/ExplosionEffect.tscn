@@ -32,5 +32,6 @@ animations = [ {
 } ]
 
 [node name="ExplosionEffect" type="AnimatedSprite"]
+z_index = 10
 frames = SubResource( 6 )
 script = ExtResource( 2 )

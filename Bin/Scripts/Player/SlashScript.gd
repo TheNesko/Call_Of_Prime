@@ -10,4 +10,4 @@ func _ready():
 	queue_free()
 
 func _physics_process(delta):
-	position += Vector2(0,-0.3).rotated(rotation)
+	position += Vector2(0,-0.1).rotated(rotation)
