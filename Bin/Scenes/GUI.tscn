@@ -20,6 +20,7 @@ __meta__ = {
 }
 
 [node name="Inventory" type="Control" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 4
@@ -59,8 +60,8 @@ __meta__ = {
 [node name="SlotsPanel" type="GridContainer" parent="Inventory/InventoryPanel/TextureRect"]
 anchor_left = 0.220994
 anchor_top = 0.111386
-anchor_right = 0.54558
-anchor_bottom = 0.886139
+anchor_right = 0.535912
+anchor_bottom = 0.898515
 custom_constants/vseparation = 0
 custom_constants/hseparation = 0
 columns = 5
@@ -70,8 +71,10 @@ __meta__ = {
 
 [node name="Slot1" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_right = 46.0
-margin_bottom = 44.0
+margin_right = 45.0
+margin_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
@@ -89,9 +92,11 @@ __meta__ = {
 
 [node name="Slot2" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 46.0
-margin_right = 92.0
-margin_bottom = 44.0
+margin_left = 45.0
+margin_right = 90.0
+margin_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
@@ -107,9 +112,11 @@ __meta__ = {
 
 [node name="Slot3" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 92.0
-margin_right = 138.0
-margin_bottom = 44.0
+margin_left = 90.0
+margin_right = 135.0
+margin_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
@@ -125,9 +132,11 @@ __meta__ = {
 
 [node name="Slot4" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 138.0
-margin_right = 184.0
-margin_bottom = 44.0
+margin_left = 135.0
+margin_right = 180.0
+margin_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
@@ -143,9 +152,11 @@ __meta__ = {
 
 [node name="Slot5" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 184.0
-margin_right = 230.0
-margin_bottom = 44.0
+margin_left = 180.0
+margin_right = 225.0
+margin_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
@@ -161,9 +172,11 @@ __meta__ = {
 
 [node name="Slot6" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_top = 44.0
-margin_right = 46.0
-margin_bottom = 88.0
+margin_top = 45.0
+margin_right = 45.0
+margin_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
@@ -179,10 +192,12 @@ __meta__ = {
 
 [node name="Slot7" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 46.0
-margin_top = 44.0
-margin_right = 92.0
-margin_bottom = 88.0
+margin_left = 45.0
+margin_top = 45.0
+margin_right = 90.0
+margin_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
@@ -198,10 +213,12 @@ __meta__ = {
 
 [node name="Slot8" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 92.0
-margin_top = 44.0
-margin_right = 138.0
-margin_bottom = 88.0
+margin_left = 90.0
+margin_top = 45.0
+margin_right = 135.0
+margin_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
@@ -217,10 +234,12 @@ __meta__ = {
 
 [node name="Slot9" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 138.0
-margin_top = 44.0
-margin_right = 184.0
-margin_bottom = 88.0
+margin_left = 135.0
+margin_top = 45.0
+margin_right = 180.0
+margin_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
@@ -236,10 +255,12 @@ __meta__ = {
 
 [node name="Slot10" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 184.0
-margin_top = 44.0
-margin_right = 230.0
-margin_bottom = 88.0
+margin_left = 180.0
+margin_top = 45.0
+margin_right = 225.0
+margin_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
@@ -255,9 +276,11 @@ __meta__ = {
 
 [node name="Slot11" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_top = 88.0
-margin_right = 46.0
-margin_bottom = 132.0
+margin_top = 90.0
+margin_right = 45.0
+margin_bottom = 135.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
@@ -273,10 +296,12 @@ __meta__ = {
 
 [node name="Slot12" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 46.0
-margin_top = 88.0
-margin_right = 92.0
-margin_bottom = 132.0
+margin_left = 45.0
+margin_top = 90.0
+margin_right = 90.0
+margin_bottom = 135.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
@@ -292,10 +317,12 @@ __meta__ = {
 
 [node name="Slot13" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 92.0
-margin_top = 88.0
-margin_right = 138.0
-margin_bottom = 132.0
+margin_left = 90.0
+margin_top = 90.0
+margin_right = 135.0
+margin_bottom = 135.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
@@ -311,10 +338,12 @@ __meta__ = {
 
 [node name="Slot14" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 138.0
-margin_top = 88.0
-margin_right = 184.0
-margin_bottom = 132.0
+margin_left = 135.0
+margin_top = 90.0
+margin_right = 180.0
+margin_bottom = 135.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
@@ -330,10 +359,12 @@ __meta__ = {
 
 [node name="Slot15" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 184.0
-margin_top = 88.0
-margin_right = 230.0
-margin_bottom = 132.0
+margin_left = 180.0
+margin_top = 90.0
+margin_right = 225.0
+margin_bottom = 135.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
@@ -349,9 +380,11 @@ __meta__ = {
 
 [node name="Slot16" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_top = 132.0
-margin_right = 46.0
-margin_bottom = 176.0
+margin_top = 135.0
+margin_right = 45.0
+margin_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
@@ -367,10 +400,12 @@ __meta__ = {
 
 [node name="Slot17" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 46.0
-margin_top = 132.0
-margin_right = 92.0
-margin_bottom = 176.0
+margin_left = 45.0
+margin_top = 135.0
+margin_right = 90.0
+margin_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
@@ -386,10 +421,12 @@ __meta__ = {
 
 [node name="Slot18" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 92.0
-margin_top = 132.0
-margin_right = 138.0
-margin_bottom = 176.0
+margin_left = 90.0
+margin_top = 135.0
+margin_right = 135.0
+margin_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
@@ -405,10 +442,12 @@ __meta__ = {
 
 [node name="Slot19" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 138.0
-margin_top = 132.0
-margin_right = 184.0
-margin_bottom = 176.0
+margin_left = 135.0
+margin_top = 135.0
+margin_right = 180.0
+margin_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
@@ -424,10 +463,12 @@ __meta__ = {
 
 [node name="Slot20" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 184.0
-margin_top = 132.0
-margin_right = 230.0
-margin_bottom = 176.0
+margin_left = 180.0
+margin_top = 135.0
+margin_right = 225.0
+margin_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
@@ -443,9 +484,11 @@ __meta__ = {
 
 [node name="Slot21" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_top = 176.0
-margin_right = 46.0
-margin_bottom = 220.0
+margin_top = 180.0
+margin_right = 45.0
+margin_bottom = 225.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
@@ -461,10 +504,12 @@ __meta__ = {
 
 [node name="Slot22" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 46.0
-margin_top = 176.0
-margin_right = 92.0
-margin_bottom = 220.0
+margin_left = 45.0
+margin_top = 180.0
+margin_right = 90.0
+margin_bottom = 225.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
@@ -480,10 +525,12 @@ __meta__ = {
 
 [node name="Slot23" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 92.0
-margin_top = 176.0
-margin_right = 138.0
-margin_bottom = 220.0
+margin_left = 90.0
+margin_top = 180.0
+margin_right = 135.0
+margin_bottom = 225.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
@@ -499,10 +546,12 @@ __meta__ = {
 
 [node name="Slot24" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 138.0
-margin_top = 176.0
-margin_right = 184.0
-margin_bottom = 220.0
+margin_left = 135.0
+margin_top = 180.0
+margin_right = 180.0
+margin_bottom = 225.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
@@ -518,10 +567,12 @@ __meta__ = {
 
 [node name="Slot25" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 184.0
-margin_top = 176.0
-margin_right = 230.0
-margin_bottom = 220.0
+margin_left = 180.0
+margin_top = 180.0
+margin_right = 225.0
+margin_bottom = 225.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
@@ -537,9 +588,11 @@ __meta__ = {
 
 [node name="Slot26" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_top = 220.0
-margin_right = 46.0
-margin_bottom = 264.0
+margin_top = 225.0
+margin_right = 45.0
+margin_bottom = 270.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
@@ -555,10 +608,12 @@ __meta__ = {
 
 [node name="Slot27" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 46.0
-margin_top = 220.0
-margin_right = 92.0
-margin_bottom = 264.0
+margin_left = 45.0
+margin_top = 225.0
+margin_right = 90.0
+margin_bottom = 270.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
@@ -574,10 +629,12 @@ __meta__ = {
 
 [node name="Slot28" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 92.0
-margin_top = 220.0
-margin_right = 138.0
-margin_bottom = 264.0
+margin_left = 90.0
+margin_top = 225.0
+margin_right = 135.0
+margin_bottom = 270.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
@@ -593,10 +650,12 @@ __meta__ = {
 
 [node name="Slot29" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 138.0
-margin_top = 220.0
-margin_right = 184.0
-margin_bottom = 264.0
+margin_left = 135.0
+margin_top = 225.0
+margin_right = 180.0
+margin_bottom = 270.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
@@ -612,10 +671,12 @@ __meta__ = {
 
 [node name="Slot30" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 184.0
-margin_top = 220.0
-margin_right = 230.0
-margin_bottom = 264.0
+margin_left = 180.0
+margin_top = 225.0
+margin_right = 225.0
+margin_bottom = 270.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
@@ -631,9 +692,11 @@ __meta__ = {
 
 [node name="Slot31" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_top = 264.0
-margin_right = 46.0
-margin_bottom = 308.0
+margin_top = 270.0
+margin_right = 45.0
+margin_bottom = 315.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
@@ -649,10 +712,12 @@ __meta__ = {
 
 [node name="Slot32" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 46.0
-margin_top = 264.0
-margin_right = 92.0
-margin_bottom = 308.0
+margin_left = 45.0
+margin_top = 270.0
+margin_right = 90.0
+margin_bottom = 315.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
@@ -668,10 +733,12 @@ __meta__ = {
 
 [node name="Slot33" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 92.0
-margin_top = 264.0
-margin_right = 138.0
-margin_bottom = 308.0
+margin_left = 90.0
+margin_top = 270.0
+margin_right = 135.0
+margin_bottom = 315.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
@@ -687,10 +754,12 @@ __meta__ = {
 
 [node name="Slot34" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 138.0
-margin_top = 264.0
-margin_right = 184.0
-margin_bottom = 308.0
+margin_left = 135.0
+margin_top = 270.0
+margin_right = 180.0
+margin_bottom = 315.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
@@ -706,10 +775,12 @@ __meta__ = {
 
 [node name="Slot35" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 184.0
-margin_top = 264.0
-margin_right = 230.0
-margin_bottom = 308.0
+margin_left = 180.0
+margin_top = 270.0
+margin_right = 225.0
+margin_bottom = 315.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )

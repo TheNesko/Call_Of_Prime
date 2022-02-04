@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+onready var root = get_parent().get_parent()
 onready var AnimPlayer = $YSort/SpriteHolder/Sprite
 onready var Stats = $Stats
 export var Velocity = Vector2.ZERO
@@ -14,6 +15,9 @@ func _input(_event):
 		Stats.Speed = 300
 	else:
 		Stats.Speed = Stats.BaseSpeed
+	
+	if Input.is_key_pressed(KEY_F):
+		_Pick_Up_Item()
 
 
 func _Move_Input():
@@ -96,3 +100,23 @@ func _Use_Ablility(AbilityName:String):
 		if x.AbilityName == AbilityName:
 			if x.CooldownTimer.is_stopped():
 				x._Cast()
+
+
+var ItemsNear = []
+func _on_PickUpArea(body):
+	ItemsNear.append(body)
+	print(ItemsNear)
+
+func _on_PickUpArea_exited(body):
+	ItemsNear.erase(body)
+
+func _Pick_Up_Item():
+	if ItemsNear.size() <=0: return
+	var closest = null
+	for x in ItemsNear:
+		if closest == null: closest = x
+		if position.distance_to(x.position) < position.distance_to(closest.position):
+			closest = x
+	root.find_node("GUI")._Add_Item(closest.ItemData)
+	print(root.find_node("GUI"))
+	closest.queue_free()
