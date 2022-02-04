@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Bin/Scenes/Abilites/BoulderProjectile.tres" type="SpriteFrames" id=1]
+
+[node name="SpriteFramesScene" type="AnimatedSprite"]
+frames = ExtResource( 1 )

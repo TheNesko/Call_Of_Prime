@@ -1,7 +1,8 @@
-[gd_resource type="Resource" load_steps=3 format=2]
+[gd_resource type="Resource" load_steps=4 format=2]
 
 [ext_resource path="res://Bin/Scripts/Abilites/CastAbilityData.gd" type="Script" id=1]
 [ext_resource path="res://Bin/Scenes/Abilites/FireballProjectile.tres" type="SpriteFrames" id=2]
+[ext_resource path="res://Bin/Scenes/Effects/ExplosionEffect.tscn" type="PackedScene" id=3]
 
 [resource]
 script = ExtResource( 1 )
@@ -11,3 +12,4 @@ ProjectileSpeed = 350.0
 Cooldown = 2.0
 TravelTime = 0.7
 texture = ExtResource( 2 )
+CastExplosion = ExtResource( 3 )

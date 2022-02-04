@@ -24,6 +24,8 @@ func _Cast():
 	ProjectileCopy.rotation = Player.WeaponPosition.rotation
 	ProjectileCopy.position = Player.WeaponPosition.global_position
 	ProjectileCopy.find_node("Sprite").frames = AbilityData.texture
+	if AbilityData.CastExplosion != null:
+		ProjectileCopy.ExplosionEffect = AbilityData.CastExplosion
 	_Start_Cooldown(AbilityData.Cooldown)
 
 func _Start_Cooldown(CooldownTime:float):

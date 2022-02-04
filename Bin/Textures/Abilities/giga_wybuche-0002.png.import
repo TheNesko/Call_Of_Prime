@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/giga_wybuche-0002.png-22eb286d9726965cd58ccb80c70c6446.stex"
+path="res://.import/giga_wybuche-0002.png-f36f3fa91a961f6b1b8b86936e969d29.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Bin/Textures/giga_wybuche-0002.png"
-dest_files=[ "res://.import/giga_wybuche-0002.png-22eb286d9726965cd58ccb80c70c6446.stex" ]
+source_file="res://Bin/Textures/Abilities/giga_wybuche-0002.png"
+dest_files=[ "res://.import/giga_wybuche-0002.png-f36f3fa91a961f6b1b8b86936e969d29.stex" ]
 
 [params]
 

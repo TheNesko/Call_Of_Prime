@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/drewnianymiecz.png-cb06d0e738564882b9fc608585e975c7.stex"
+path="res://.import/fireball.png-feac8899b90e2e2ee93d2d8d074b3365.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Bin/Textures/drewnianymiecz.png"
-dest_files=[ "res://.import/drewnianymiecz.png-cb06d0e738564882b9fc608585e975c7.stex" ]
+source_file="res://Bin/Textures/Abilities/fireball.png"
+dest_files=[ "res://.import/fireball.png-feac8899b90e2e2ee93d2d8d074b3365.stex" ]
 
 [params]
 
