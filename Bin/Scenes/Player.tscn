@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Bin/Scripts/Player/PlayerController.gd" type="Script" id=1]
 [ext_resource path="res://Bin/Textures/Player/postacanimacja-sheet.png" type="Texture" id=2]
@@ -6,9 +6,11 @@
 [ext_resource path="res://Bin/Textures/Items/drewnianymiecz.png" type="Texture" id=4]
 [ext_resource path="res://Bin/Scripts/Player/WeaponPosition.gd" type="Script" id=5]
 [ext_resource path="res://Bin/Scripts/Player/PlayerStats.gd" type="Script" id=6]
-[ext_resource path="res://Bin/Scripts/Abilites/CastAbility.gd" type="Script" id=7]
-[ext_resource path="res://Bin/Scripts/Abilites/Boulder.tres" type="Resource" id=8]
-[ext_resource path="res://Bin/Scripts/Abilites/FireBallData.tres" type="Resource" id=9]
+[ext_resource path="res://Bin/Scripts/Abilites/Cast/CastAbility.gd" type="Script" id=7]
+[ext_resource path="res://Bin/Scripts/Abilites/Cast/Boulder.tres" type="Resource" id=8]
+[ext_resource path="res://Bin/Scripts/Abilites/Cast/FireBallData.tres" type="Resource" id=9]
+[ext_resource path="res://Bin/Scripts/Abilites/Effect/EffectNode.gd" type="Script" id=10]
+[ext_resource path="res://Bin/Scripts/Abilites/Effect/SpeedBoost.tres" type="Resource" id=11]
 
 [sub_resource type="RectangleShape2D" id=24]
 extents = Vector2( 7.5, 12.5 )
@@ -67,6 +69,31 @@ script = ExtResource( 3 )
 
 [node name="Stats" type="Node" parent="."]
 script = ExtResource( 6 )
+
+[node name="Abilities" type="Node" parent="."]
+
+[node name="CastAbility" type="Node" parent="Abilities"]
+script = ExtResource( 7 )
+AbilityData = ExtResource( 9 )
+
+[node name="CooldownTimer" type="Timer" parent="Abilities/CastAbility"]
+one_shot = true
+
+[node name="CastAbility2" type="Node" parent="Abilities"]
+script = ExtResource( 7 )
+AbilityData = ExtResource( 8 )
+
+[node name="CooldownTimer" type="Timer" parent="Abilities/CastAbility2"]
+one_shot = true
+
+[node name="ActiveEffects" type="Node" parent="."]
+
+[node name="Effect" type="Node" parent="ActiveEffects"]
+script = ExtResource( 10 )
+EffectData = ExtResource( 11 )
+
+[node name="EffectTimer" type="Timer" parent="ActiveEffects/Effect"]
+one_shot = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 0, -6 )
@@ -144,22 +171,6 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Abilities" type="Node" parent="."]
-
-[node name="CastAbility" type="Node" parent="Abilities"]
-script = ExtResource( 7 )
-AbilityData = ExtResource( 9 )
-
-[node name="CooldownTimer" type="Timer" parent="Abilities/CastAbility"]
-one_shot = true
-
-[node name="CastAbility2" type="Node" parent="Abilities"]
-script = ExtResource( 7 )
-AbilityData = ExtResource( 8 )
-
-[node name="CooldownTimer" type="Timer" parent="Abilities/CastAbility2"]
-one_shot = true
-
 [node name="PickUpArea" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 16384
@@ -167,6 +178,7 @@ collision_mask = 16384
 [node name="Collision" type="CollisionShape2D" parent="PickUpArea"]
 shape = SubResource( 31 )
 
+[connection signal="timeout" from="ActiveEffects/Effect/EffectTimer" to="ActiveEffects/Effect" method="_on_EffectTimer_timeout"]
 [connection signal="area_entered" from="YSort/WeaponPosition/HurtBox" to="." method="_on_HurtBox"]
 [connection signal="body_entered" from="PickUpArea" to="." method="_on_PickUpArea"]
 [connection signal="body_exited" from="PickUpArea" to="." method="_on_PickUpArea_exited"]

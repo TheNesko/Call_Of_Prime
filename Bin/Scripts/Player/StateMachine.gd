@@ -10,11 +10,24 @@ enum States {
 var PreviousState = null
 export (States) var State = States.Idle
 
-func _process(_delta) -> void:
+func _process(delta) -> void:
 	_Update_State(_State_Checker())
-	
 	parent._Flip()
 	parent._Move_Input()
+	parent.find_node("Stats")._Apply_Active_Effects()
+	
+	if Input.is_key_pressed(KEY_Q):
+		parent._Use_Ablility("Fireball")
+	if Input.is_key_pressed(KEY_E):
+		parent._Use_Ablility("Boulder")
+#	if Input.is_key_pressed(KEY_SHIFT):
+#		parent.Stats.Speed = parent.Stats.RunSpeed
+#	else:
+#		parent.Stats.Speed = parent.Stats.BaseSpeed
+	
+	if Input.is_key_pressed(KEY_F):
+		parent._Pick_Up_Item()
+	
 
 func _physics_process(_delta) -> void:
 	parent._Apply_Movement()

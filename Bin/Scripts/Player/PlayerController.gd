@@ -6,19 +6,6 @@ onready var Stats = $Stats
 export var Velocity = Vector2.ZERO
 
 
-func _input(_event):
-	if Input.is_key_pressed(KEY_Q):
-		_Use_Ablility("Fireball")
-	if Input.is_key_pressed(KEY_E):
-		_Use_Ablility("Boulder")
-	if Input.is_key_pressed(KEY_SHIFT):
-		Stats.Speed = 300
-	else:
-		Stats.Speed = Stats.BaseSpeed
-	
-	if Input.is_key_pressed(KEY_F):
-		_Pick_Up_Item()
-
 
 func _Move_Input():
 	Velocity.x = Input.get_axis("Left","Right")

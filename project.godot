@@ -12,7 +12,12 @@ _global_script_classes=[ {
 "base": "Resource",
 "class": "CastAbilityData",
 "language": "GDScript",
-"path": "res://Bin/Scripts/Abilites/CastAbilityData.gd"
+"path": "res://Bin/Scripts/Abilites/Cast/CastAbilityData.gd"
+}, {
+"base": "Resource",
+"class": "EffectData",
+"language": "GDScript",
+"path": "res://Bin/Scripts/Abilites/Effect/EffectData.gd"
 }, {
 "base": "",
 "class": "GitAPI",
@@ -26,6 +31,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "CastAbilityData": "",
+"EffectData": "",
 "GitAPI": "",
 "Item": ""
 }
