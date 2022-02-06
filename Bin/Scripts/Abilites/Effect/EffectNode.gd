@@ -28,8 +28,8 @@ func _Apply_Effect(body):
 			Stats.set(EffectData.StatEffect,Stat - (Stat*(EffectData.EffectStrengh/100)))
 		"Poison":
 			PoisionActive = true
-	prints(EffectData.StatEffect,Stats.get(EffectData.StatEffect))
-	print(FirstValue)
+	prints(EffectData.StatEffect,"Set to",Stats.get(EffectData.StatEffect))
+	
 
 
 func _physics_process(delta):
@@ -52,4 +52,5 @@ func _on_EffectTimer_timeout():
 		"Poison":
 			PoisionActive = false
 			Stats.set(EffectData.StatEffect,FirstValue)
+	prints(EffectData.StatEffect,"Set to",FirstValue)
 	queue_free()

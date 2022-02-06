@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Bin/Scripts/Abilites/Cast/CastAbility.gd" type="Script" id=1]
+[ext_resource path="res://Bin/Scripts/Abilites/Cast/FireBallData.tres" type="Resource" id=2]
+
+[node name="CastAbility" type="Node"]
+script = ExtResource( 1 )
+AbilityData = ExtResource( 2 )
+
+[node name="CooldownTimer" type="Timer" parent="."]
+one_shot = true

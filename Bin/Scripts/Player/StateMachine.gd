@@ -19,7 +19,7 @@ func _process(delta) -> void:
 	if Input.is_key_pressed(KEY_Q):
 		parent._Use_Ablility("Fireball")
 	if Input.is_key_pressed(KEY_E):
-		parent._Use_Ablility("Boulder")
+		parent._Use_Ablility("Speed Boost")
 #	if Input.is_key_pressed(KEY_SHIFT):
 #		parent.Stats.Speed = parent.Stats.RunSpeed
 #	else:

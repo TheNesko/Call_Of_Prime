@@ -87,6 +87,7 @@ func _Use_Ablility(AbilityName:String):
 		if x.AbilityName == AbilityName:
 			if x.CooldownTimer.is_stopped():
 				x._Cast()
+				prints("Used",x.AbilityName)
 
 
 var ItemsNear = []

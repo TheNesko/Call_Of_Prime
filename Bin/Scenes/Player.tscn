@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Bin/Scripts/Player/PlayerController.gd" type="Script" id=1]
 [ext_resource path="res://Bin/Textures/Player/postacanimacja-sheet.png" type="Texture" id=2]
@@ -6,10 +6,9 @@
 [ext_resource path="res://Bin/Textures/Items/drewnianymiecz.png" type="Texture" id=4]
 [ext_resource path="res://Bin/Scripts/Player/WeaponPosition.gd" type="Script" id=5]
 [ext_resource path="res://Bin/Scripts/Player/PlayerStats.gd" type="Script" id=6]
-[ext_resource path="res://Bin/Scripts/Abilites/Cast/CastAbility.gd" type="Script" id=7]
+[ext_resource path="res://Bin/Scripts/Abilites/Effect/EffectCastAbility.gd" type="Script" id=7]
 [ext_resource path="res://Bin/Scripts/Abilites/Cast/Boulder.tres" type="Resource" id=8]
-[ext_resource path="res://Bin/Scripts/Abilites/Cast/FireBallData.tres" type="Resource" id=9]
-[ext_resource path="res://Bin/Scripts/Abilites/Effect/EffectNode.gd" type="Script" id=10]
+[ext_resource path="res://Bin/Scenes/Abilites/CastAbility.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Bin/Scripts/Abilites/Effect/SpeedBoost.tres" type="Resource" id=11]
 
 [sub_resource type="RectangleShape2D" id=24]
@@ -21,6 +20,10 @@ height = 6.0
 
 [sub_resource type="RectangleShape2D" id=23]
 extents = Vector2( 34, 14.5783 )
+
+[sub_resource type="AtlasTexture" id=26]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=28]
 atlas = ExtResource( 2 )
@@ -38,21 +41,17 @@ region = Rect2( 96, 0, 32, 32 )
 atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=26]
-atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 32, 32 )
-
 [sub_resource type="SpriteFrames" id=17]
 animations = [ {
-"frames": [ SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 27 ) ],
-"loop": true,
-"name": "Walk",
-"speed": 8.0
-}, {
 "frames": [ SubResource( 26 ) ],
 "loop": false,
 "name": "Idle",
 "speed": 5.0
+}, {
+"frames": [ SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 27 ) ],
+"loop": true,
+"name": "Walk",
+"speed": 8.0
 } ]
 
 [sub_resource type="CircleShape2D" id=31]
@@ -72,28 +71,19 @@ script = ExtResource( 6 )
 
 [node name="Abilities" type="Node" parent="."]
 
-[node name="CastAbility" type="Node" parent="Abilities"]
-script = ExtResource( 7 )
-AbilityData = ExtResource( 9 )
+[node name="CastAbility" parent="Abilities" instance=ExtResource( 9 )]
 
-[node name="CooldownTimer" type="Timer" parent="Abilities/CastAbility"]
-one_shot = true
-
-[node name="CastAbility2" type="Node" parent="Abilities"]
-script = ExtResource( 7 )
+[node name="CastAbility2" parent="Abilities" instance=ExtResource( 9 )]
 AbilityData = ExtResource( 8 )
 
-[node name="CooldownTimer" type="Timer" parent="Abilities/CastAbility2"]
+[node name="EffectCastAbility" type="Node" parent="Abilities"]
+script = ExtResource( 7 )
+AbilityData = ExtResource( 11 )
+
+[node name="CooldownTimer" type="Timer" parent="Abilities/EffectCastAbility"]
 one_shot = true
 
 [node name="ActiveEffects" type="Node" parent="."]
-
-[node name="Effect" type="Node" parent="ActiveEffects"]
-script = ExtResource( 10 )
-EffectData = ExtResource( 11 )
-
-[node name="EffectTimer" type="Timer" parent="ActiveEffects/Effect"]
-one_shot = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 0, -6 )
@@ -178,7 +168,6 @@ collision_mask = 16384
 [node name="Collision" type="CollisionShape2D" parent="PickUpArea"]
 shape = SubResource( 31 )
 
-[connection signal="timeout" from="ActiveEffects/Effect/EffectTimer" to="ActiveEffects/Effect" method="_on_EffectTimer_timeout"]
 [connection signal="area_entered" from="YSort/WeaponPosition/HurtBox" to="." method="_on_HurtBox"]
 [connection signal="body_entered" from="PickUpArea" to="." method="_on_PickUpArea"]
 [connection signal="body_exited" from="PickUpArea" to="." method="_on_PickUpArea_exited"]
