@@ -1,26 +1,27 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Bin/Textures/AspriteFiles/Inventory_V2.png" type="Texture" id=1]
+[ext_resource path="res://Bin/Textures/Inventory.png" type="Texture" id=1]
 [ext_resource path="res://Bin/Scripts/GUI.gd" type="Script" id=2]
-[ext_resource path="res://Bin/Scripts/Items/SlotScript.gd" type="Script" id=3]
+[ext_resource path="res://Bin/Scripts/Items/scripts/SlotScript.gd" type="Script" id=3]
 [ext_resource path="res://Bin/Scripts/Items/WoodenSword.tres" type="Resource" id=4]
+[ext_resource path="res://Bin/Fonts/Minecraft.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://Bin/Scripts/EquipmentSlot.gd" type="Script" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 5 )
 
 [node name="GUI" type="Control"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -362.0
-margin_top = -202.0
-margin_right = 362.0
-margin_bottom = 202.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 script = ExtResource( 2 )
 __meta__ = {
-"_edit_use_anchors_": true
+"_edit_use_anchors_": false
 }
 
 [node name="Inventory" type="Control" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 4
@@ -57,7 +58,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="SlotsPanel" type="GridContainer" parent="Inventory/InventoryPanel/TextureRect"]
+[node name="InventorySlots" type="GridContainer" parent="Inventory/InventoryPanel/TextureRect"]
 anchor_left = 0.220994
 anchor_top = 0.111386
 anchor_right = 0.535912
@@ -69,10 +70,10 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Slot1" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
+[node name="Slot1" type="Panel" parent="Inventory/InventoryPanel/TextureRect/InventorySlots"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_right = 45.0
-margin_bottom = 45.0
+margin_right = 64.0
+margin_bottom = 67.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -81,7 +82,7 @@ script = ExtResource( 3 )
 Occupied = true
 ItemData = ExtResource( 4 )
 
-[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel/Slot1"]
+[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/InventorySlots/Slot1"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 expand = true
@@ -90,18 +91,18 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Slot2" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
+[node name="Slot2" type="Panel" parent="Inventory/InventoryPanel/TextureRect/InventorySlots"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 45.0
-margin_right = 90.0
-margin_bottom = 45.0
+margin_left = 64.0
+margin_right = 128.0
+margin_bottom = 67.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
 
-[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel/Slot2"]
+[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/InventorySlots/Slot2"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 expand = true
@@ -110,18 +111,18 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Slot3" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
+[node name="Slot3" type="Panel" parent="Inventory/InventoryPanel/TextureRect/InventorySlots"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 90.0
-margin_right = 135.0
-margin_bottom = 45.0
+margin_left = 128.0
+margin_right = 192.0
+margin_bottom = 67.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
 
-[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel/Slot3"]
+[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/InventorySlots/Slot3"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 expand = true
@@ -130,18 +131,18 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Slot4" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
+[node name="Slot4" type="Panel" parent="Inventory/InventoryPanel/TextureRect/InventorySlots"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 135.0
-margin_right = 180.0
-margin_bottom = 45.0
+margin_left = 192.0
+margin_right = 256.0
+margin_bottom = 67.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
 
-[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel/Slot4"]
+[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/InventorySlots/Slot4"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 expand = true
@@ -150,18 +151,18 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Slot5" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
+[node name="Slot5" type="Panel" parent="Inventory/InventoryPanel/TextureRect/InventorySlots"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 180.0
-margin_right = 225.0
-margin_bottom = 45.0
+margin_left = 256.0
+margin_right = 320.0
+margin_bottom = 67.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
 
-[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel/Slot5"]
+[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/InventorySlots/Slot5"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 expand = true
@@ -170,18 +171,18 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Slot6" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
+[node name="Slot6" type="Panel" parent="Inventory/InventoryPanel/TextureRect/InventorySlots"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_top = 45.0
-margin_right = 45.0
-margin_bottom = 90.0
+margin_top = 67.0
+margin_right = 64.0
+margin_bottom = 134.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
 
-[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel/Slot6"]
+[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/InventorySlots/Slot6"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 expand = true
@@ -190,19 +191,19 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Slot7" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
+[node name="Slot7" type="Panel" parent="Inventory/InventoryPanel/TextureRect/InventorySlots"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 45.0
-margin_top = 45.0
-margin_right = 90.0
-margin_bottom = 90.0
+margin_left = 64.0
+margin_top = 67.0
+margin_right = 128.0
+margin_bottom = 134.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
 
-[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel/Slot7"]
+[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/InventorySlots/Slot7"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 expand = true
@@ -211,19 +212,19 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Slot8" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
+[node name="Slot8" type="Panel" parent="Inventory/InventoryPanel/TextureRect/InventorySlots"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 90.0
-margin_top = 45.0
-margin_right = 135.0
-margin_bottom = 90.0
+margin_left = 128.0
+margin_top = 67.0
+margin_right = 192.0
+margin_bottom = 134.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
 
-[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel/Slot8"]
+[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/InventorySlots/Slot8"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 expand = true
@@ -232,19 +233,19 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Slot9" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
+[node name="Slot9" type="Panel" parent="Inventory/InventoryPanel/TextureRect/InventorySlots"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 135.0
-margin_top = 45.0
-margin_right = 180.0
-margin_bottom = 90.0
+margin_left = 192.0
+margin_top = 67.0
+margin_right = 256.0
+margin_bottom = 134.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
 
-[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel/Slot9"]
+[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/InventorySlots/Slot9"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 expand = true
@@ -253,19 +254,19 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Slot10" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
+[node name="Slot10" type="Panel" parent="Inventory/InventoryPanel/TextureRect/InventorySlots"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 180.0
-margin_top = 45.0
-margin_right = 225.0
-margin_bottom = 90.0
+margin_left = 256.0
+margin_top = 67.0
+margin_right = 320.0
+margin_bottom = 134.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
 
-[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel/Slot10"]
+[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/InventorySlots/Slot10"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 expand = true
@@ -274,18 +275,18 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Slot11" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
+[node name="Slot11" type="Panel" parent="Inventory/InventoryPanel/TextureRect/InventorySlots"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_top = 90.0
-margin_right = 45.0
-margin_bottom = 135.0
+margin_top = 134.0
+margin_right = 64.0
+margin_bottom = 201.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
 
-[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel/Slot11"]
+[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/InventorySlots/Slot11"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 expand = true
@@ -294,19 +295,19 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Slot12" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
+[node name="Slot12" type="Panel" parent="Inventory/InventoryPanel/TextureRect/InventorySlots"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 45.0
-margin_top = 90.0
-margin_right = 90.0
-margin_bottom = 135.0
+margin_left = 64.0
+margin_top = 134.0
+margin_right = 128.0
+margin_bottom = 201.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
 
-[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel/Slot12"]
+[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/InventorySlots/Slot12"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 expand = true
@@ -315,19 +316,19 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Slot13" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
+[node name="Slot13" type="Panel" parent="Inventory/InventoryPanel/TextureRect/InventorySlots"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 90.0
-margin_top = 90.0
-margin_right = 135.0
-margin_bottom = 135.0
+margin_left = 128.0
+margin_top = 134.0
+margin_right = 192.0
+margin_bottom = 201.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
 
-[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel/Slot13"]
+[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/InventorySlots/Slot13"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 expand = true
@@ -336,19 +337,19 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Slot14" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
+[node name="Slot14" type="Panel" parent="Inventory/InventoryPanel/TextureRect/InventorySlots"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 135.0
-margin_top = 90.0
-margin_right = 180.0
-margin_bottom = 135.0
+margin_left = 192.0
+margin_top = 134.0
+margin_right = 256.0
+margin_bottom = 201.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
 
-[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel/Slot14"]
+[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/InventorySlots/Slot14"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 expand = true
@@ -357,19 +358,19 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Slot15" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
+[node name="Slot15" type="Panel" parent="Inventory/InventoryPanel/TextureRect/InventorySlots"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 180.0
-margin_top = 90.0
-margin_right = 225.0
-margin_bottom = 135.0
+margin_left = 256.0
+margin_top = 134.0
+margin_right = 320.0
+margin_bottom = 201.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
 
-[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel/Slot15"]
+[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/InventorySlots/Slot15"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 expand = true
@@ -378,18 +379,18 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Slot16" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
+[node name="Slot16" type="Panel" parent="Inventory/InventoryPanel/TextureRect/InventorySlots"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_top = 135.0
-margin_right = 45.0
-margin_bottom = 180.0
+margin_top = 201.0
+margin_right = 64.0
+margin_bottom = 268.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
 
-[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel/Slot16"]
+[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/InventorySlots/Slot16"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 expand = true
@@ -398,19 +399,19 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Slot17" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
+[node name="Slot17" type="Panel" parent="Inventory/InventoryPanel/TextureRect/InventorySlots"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 45.0
-margin_top = 135.0
-margin_right = 90.0
-margin_bottom = 180.0
+margin_left = 64.0
+margin_top = 201.0
+margin_right = 128.0
+margin_bottom = 268.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
 
-[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel/Slot17"]
+[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/InventorySlots/Slot17"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 expand = true
@@ -419,19 +420,19 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Slot18" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
+[node name="Slot18" type="Panel" parent="Inventory/InventoryPanel/TextureRect/InventorySlots"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 90.0
-margin_top = 135.0
-margin_right = 135.0
-margin_bottom = 180.0
+margin_left = 128.0
+margin_top = 201.0
+margin_right = 192.0
+margin_bottom = 268.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
 
-[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel/Slot18"]
+[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/InventorySlots/Slot18"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 expand = true
@@ -440,19 +441,19 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Slot19" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
+[node name="Slot19" type="Panel" parent="Inventory/InventoryPanel/TextureRect/InventorySlots"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 135.0
-margin_top = 135.0
-margin_right = 180.0
-margin_bottom = 180.0
+margin_left = 192.0
+margin_top = 201.0
+margin_right = 256.0
+margin_bottom = 268.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
 
-[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel/Slot19"]
+[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/InventorySlots/Slot19"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 expand = true
@@ -461,19 +462,19 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Slot20" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
+[node name="Slot20" type="Panel" parent="Inventory/InventoryPanel/TextureRect/InventorySlots"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 180.0
-margin_top = 135.0
-margin_right = 225.0
-margin_bottom = 180.0
+margin_left = 256.0
+margin_top = 201.0
+margin_right = 320.0
+margin_bottom = 268.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
 
-[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel/Slot20"]
+[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/InventorySlots/Slot20"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 expand = true
@@ -482,18 +483,18 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Slot21" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
+[node name="Slot21" type="Panel" parent="Inventory/InventoryPanel/TextureRect/InventorySlots"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_top = 180.0
-margin_right = 45.0
-margin_bottom = 225.0
+margin_top = 268.0
+margin_right = 64.0
+margin_bottom = 335.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
 
-[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel/Slot21"]
+[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/InventorySlots/Slot21"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 expand = true
@@ -502,19 +503,19 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Slot22" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
+[node name="Slot22" type="Panel" parent="Inventory/InventoryPanel/TextureRect/InventorySlots"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 45.0
-margin_top = 180.0
-margin_right = 90.0
-margin_bottom = 225.0
+margin_left = 64.0
+margin_top = 268.0
+margin_right = 128.0
+margin_bottom = 335.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
 
-[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel/Slot22"]
+[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/InventorySlots/Slot22"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 expand = true
@@ -523,19 +524,19 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Slot23" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
+[node name="Slot23" type="Panel" parent="Inventory/InventoryPanel/TextureRect/InventorySlots"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 90.0
-margin_top = 180.0
-margin_right = 135.0
-margin_bottom = 225.0
+margin_left = 128.0
+margin_top = 268.0
+margin_right = 192.0
+margin_bottom = 335.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
 
-[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel/Slot23"]
+[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/InventorySlots/Slot23"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 expand = true
@@ -544,19 +545,19 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Slot24" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
+[node name="Slot24" type="Panel" parent="Inventory/InventoryPanel/TextureRect/InventorySlots"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 135.0
-margin_top = 180.0
-margin_right = 180.0
-margin_bottom = 225.0
+margin_left = 192.0
+margin_top = 268.0
+margin_right = 256.0
+margin_bottom = 335.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
 
-[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel/Slot24"]
+[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/InventorySlots/Slot24"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 expand = true
@@ -565,19 +566,19 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Slot25" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
+[node name="Slot25" type="Panel" parent="Inventory/InventoryPanel/TextureRect/InventorySlots"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 180.0
-margin_top = 180.0
-margin_right = 225.0
-margin_bottom = 225.0
+margin_left = 256.0
+margin_top = 268.0
+margin_right = 320.0
+margin_bottom = 335.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
 
-[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel/Slot25"]
+[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/InventorySlots/Slot25"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 expand = true
@@ -586,18 +587,18 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Slot26" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
+[node name="Slot26" type="Panel" parent="Inventory/InventoryPanel/TextureRect/InventorySlots"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_top = 225.0
-margin_right = 45.0
-margin_bottom = 270.0
+margin_top = 335.0
+margin_right = 64.0
+margin_bottom = 402.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
 
-[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel/Slot26"]
+[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/InventorySlots/Slot26"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 expand = true
@@ -606,19 +607,19 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Slot27" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
+[node name="Slot27" type="Panel" parent="Inventory/InventoryPanel/TextureRect/InventorySlots"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 45.0
-margin_top = 225.0
-margin_right = 90.0
-margin_bottom = 270.0
+margin_left = 64.0
+margin_top = 335.0
+margin_right = 128.0
+margin_bottom = 402.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
 
-[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel/Slot27"]
+[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/InventorySlots/Slot27"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 expand = true
@@ -627,19 +628,19 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Slot28" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
+[node name="Slot28" type="Panel" parent="Inventory/InventoryPanel/TextureRect/InventorySlots"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 90.0
-margin_top = 225.0
-margin_right = 135.0
-margin_bottom = 270.0
+margin_left = 128.0
+margin_top = 335.0
+margin_right = 192.0
+margin_bottom = 402.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
 
-[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel/Slot28"]
+[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/InventorySlots/Slot28"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 expand = true
@@ -648,19 +649,19 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Slot29" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
+[node name="Slot29" type="Panel" parent="Inventory/InventoryPanel/TextureRect/InventorySlots"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 135.0
-margin_top = 225.0
-margin_right = 180.0
-margin_bottom = 270.0
+margin_left = 192.0
+margin_top = 335.0
+margin_right = 256.0
+margin_bottom = 402.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
 
-[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel/Slot29"]
+[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/InventorySlots/Slot29"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 expand = true
@@ -669,19 +670,19 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Slot30" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
+[node name="Slot30" type="Panel" parent="Inventory/InventoryPanel/TextureRect/InventorySlots"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 180.0
-margin_top = 225.0
-margin_right = 225.0
-margin_bottom = 270.0
+margin_left = 256.0
+margin_top = 335.0
+margin_right = 320.0
+margin_bottom = 402.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
 
-[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel/Slot30"]
+[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/InventorySlots/Slot30"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 expand = true
@@ -690,18 +691,18 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Slot31" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
+[node name="Slot31" type="Panel" parent="Inventory/InventoryPanel/TextureRect/InventorySlots"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_top = 270.0
-margin_right = 45.0
-margin_bottom = 315.0
+margin_top = 402.0
+margin_right = 64.0
+margin_bottom = 469.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
 
-[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel/Slot31"]
+[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/InventorySlots/Slot31"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 expand = true
@@ -710,19 +711,19 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Slot32" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
+[node name="Slot32" type="Panel" parent="Inventory/InventoryPanel/TextureRect/InventorySlots"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 45.0
-margin_top = 270.0
-margin_right = 90.0
-margin_bottom = 315.0
+margin_left = 64.0
+margin_top = 402.0
+margin_right = 128.0
+margin_bottom = 469.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
 
-[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel/Slot32"]
+[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/InventorySlots/Slot32"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 expand = true
@@ -731,19 +732,19 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Slot33" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
+[node name="Slot33" type="Panel" parent="Inventory/InventoryPanel/TextureRect/InventorySlots"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 90.0
-margin_top = 270.0
-margin_right = 135.0
-margin_bottom = 315.0
+margin_left = 128.0
+margin_top = 402.0
+margin_right = 192.0
+margin_bottom = 469.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
 
-[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel/Slot33"]
+[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/InventorySlots/Slot33"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 expand = true
@@ -752,19 +753,19 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Slot34" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
+[node name="Slot34" type="Panel" parent="Inventory/InventoryPanel/TextureRect/InventorySlots"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 135.0
-margin_top = 270.0
-margin_right = 180.0
-margin_bottom = 315.0
+margin_left = 192.0
+margin_top = 402.0
+margin_right = 256.0
+margin_bottom = 469.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
 
-[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel/Slot34"]
+[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/InventorySlots/Slot34"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 expand = true
@@ -773,19 +774,210 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Slot35" type="Panel" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel"]
+[node name="Slot35" type="Panel" parent="Inventory/InventoryPanel/TextureRect/InventorySlots"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 180.0
-margin_top = 270.0
-margin_right = 225.0
-margin_bottom = 315.0
+margin_left = 256.0
+margin_top = 402.0
+margin_right = 320.0
+margin_bottom = 469.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
 
-[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/SlotsPanel/Slot35"]
+[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/InventorySlots/Slot35"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ItemDetail" type="Panel" parent="Inventory/InventoryPanel/TextureRect"]
+self_modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.573242
+anchor_top = 0.51
+anchor_right = 0.819336
+anchor_bottom = 0.935
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ItemTexture" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/ItemDetail"]
+anchor_left = 0.0992064
+anchor_top = 0.105882
+anchor_right = 0.365079
+anchor_bottom = 0.368627
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ItemName" type="Label" parent="Inventory/InventoryPanel/TextureRect/ItemDetail"]
+anchor_left = 0.388889
+anchor_top = 0.0941176
+anchor_right = 0.93254
+anchor_bottom = 0.384314
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ItemDescription" type="Label" parent="Inventory/InventoryPanel/TextureRect/ItemDetail"]
+anchor_left = 0.0873016
+anchor_top = 0.4
+anchor_right = 0.93254
+anchor_bottom = 0.929412
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Equipment" type="Panel" parent="Inventory/InventoryPanel/TextureRect"]
+self_modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.573242
+anchor_top = 0.065
+anchor_right = 0.819336
+anchor_bottom = 0.49
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Helmet" type="Panel" parent="Inventory/InventoryPanel/TextureRect/Equipment"]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 98.0
+margin_top = 32.0
+margin_right = 152.0
+margin_bottom = 86.0
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/Equipment/Helmet"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Chestplate" type="Panel" parent="Inventory/InventoryPanel/TextureRect/Equipment"]
+self_modulate = Color( 1, 1, 1, 0 )
+anchor_top = 0.270588
+anchor_bottom = 0.270588
+margin_left = 98.0
+margin_top = 32.0
+margin_right = 152.0
+margin_bottom = 86.0
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/Equipment/Chestplate"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="RightHand" type="Panel" parent="Inventory/InventoryPanel/TextureRect/Equipment"]
+self_modulate = Color( 1, 1, 1, 0 )
+anchor_left = -0.27381
+anchor_top = 0.270588
+anchor_right = -0.27381
+anchor_bottom = 0.270588
+margin_left = 98.0
+margin_top = 32.0
+margin_right = 152.0
+margin_bottom = 86.0
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/Equipment/RightHand"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="LeftHand" type="Panel" parent="Inventory/InventoryPanel/TextureRect/Equipment"]
+self_modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.27381
+anchor_top = 0.266667
+anchor_right = 0.27381
+anchor_bottom = 0.266667
+margin_left = 98.0
+margin_top = 32.0
+margin_right = 152.0
+margin_bottom = 86.0
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/Equipment/LeftHand"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Leggins" type="Panel" parent="Inventory/InventoryPanel/TextureRect/Equipment"]
+self_modulate = Color( 1, 1, 1, 0 )
+anchor_top = 0.537255
+anchor_bottom = 0.537255
+margin_left = 98.0
+margin_top = 32.0
+margin_right = 152.0
+margin_bottom = 86.0
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/Equipment/Leggins"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Backpack" type="Panel" parent="Inventory/InventoryPanel/TextureRect/Equipment"]
+self_modulate = Color( 1, 1, 1, 0 )
+anchor_left = -0.27381
+anchor_right = -0.27381
+margin_left = 98.0
+margin_top = 32.0
+margin_right = 152.0
+margin_bottom = 86.0
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Sprite" type="TextureRect" parent="Inventory/InventoryPanel/TextureRect/Equipment/Backpack"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 expand = true

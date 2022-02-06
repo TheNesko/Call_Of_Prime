@@ -1,4 +1,5 @@
 extends KinematicBody2D
+tool
 
 export (Resource) var ItemData = null
 var id = 0 
@@ -10,10 +11,6 @@ func _ready():
 	Name = ItemData.ItemName
 	self.name = Name
 	$Sprite.texture = ItemData.texture
-
-func _Use():
-	pass
-
 
 
 var Time = 0.00

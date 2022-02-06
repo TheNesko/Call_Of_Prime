@@ -23,7 +23,7 @@ position = Vector2( -2, 271 )
 [node name="Dummy" parent="YSort" instance=ExtResource( 3 )]
 position = Vector2( -25, 270 )
 
-[node name="Item" parent="." instance=ExtResource( 4 )]
+[node name="Wooden Sword" parent="." instance=ExtResource( 4 )]
 position = Vector2( 99, 267 )
 collision_mask = 16384
 ItemData = ExtResource( 5 )
@@ -31,13 +31,5 @@ ItemData = ExtResource( 5 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="GUI" parent="CanvasLayer" instance=ExtResource( 6 )]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 0.0
-margin_top = 0.0
-margin_right = 0.0
-margin_bottom = 0.0
 
 [editable path="WorldTiles"]

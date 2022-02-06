@@ -19,3 +19,9 @@ func _Apply_Active_Effects():
 		if Effect.EffectData == null: return
 		if !Effect.EffectTimer.is_stopped(): return
 		Effect._Apply_Effect(get_parent())
+
+func _Apply_Equipment_Bonus(_ItemData):
+	pass
+
+func _Remove_Equipment_Bonus(_ItemData):
+	pass

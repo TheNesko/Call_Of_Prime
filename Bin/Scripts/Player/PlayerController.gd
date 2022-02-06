@@ -93,7 +93,6 @@ func _Use_Ablility(AbilityName:String):
 var ItemsNear = []
 func _on_PickUpArea(body):
 	ItemsNear.append(body)
-	print(ItemsNear)
 
 func _on_PickUpArea_exited(body):
 	ItemsNear.erase(body)
@@ -106,5 +105,4 @@ func _Pick_Up_Item():
 		if position.distance_to(x.position) < position.distance_to(closest.position):
 			closest = x
 	root.find_node("GUI")._Add_Item(closest.ItemData)
-	print(root.find_node("GUI"))
 	closest.queue_free()

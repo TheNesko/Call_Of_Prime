@@ -9,7 +9,7 @@
 [ext_resource path="res://Bin/Scripts/Abilites/Effect/scripts/EffectCastAbility.gd" type="Script" id=7]
 [ext_resource path="res://Bin/Scripts/Abilites/Cast/Boulder.tres" type="Resource" id=8]
 [ext_resource path="res://Bin/Scenes/Abilites/CastAbility.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Bin/Scripts/Abilites/Effect/HealthBoost.tres" type="Resource" id=10]
+[ext_resource path="res://Bin/Scripts/Abilites/Effect/Dash.tres" type="Resource" id=10]
 
 [sub_resource type="RectangleShape2D" id=24]
 extents = Vector2( 7.5, 12.5 )

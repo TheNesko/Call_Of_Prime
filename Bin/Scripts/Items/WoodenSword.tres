@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=3 format=2]
 
-[ext_resource path="res://Bin/Scripts/Items/ItemData.gd" type="Script" id=1]
+[ext_resource path="res://Bin/Scripts/Items/scripts/ItemData.gd" type="Script" id=1]
 [ext_resource path="res://Bin/Textures/Items/Wodden_Sword.png" type="Texture" id=2]
 
 [resource]
@@ -9,3 +9,7 @@ id = 1
 ItemName = "Wooden Sword"
 price = 10
 texture = ExtResource( 2 )
+EquipmentSlot = "RightHand"
+ItemDescription = "Just a wooden Sword nothing special about it
+
++JD 100%"

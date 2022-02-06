@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Bin/Scripts/Abilites/Effect/scripts/EffectData.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+AbilityName = "Dash"
+StatEffect = "Speed"
+SelfEffect = true
+EffectAOE = 10.0
+EffectAOEtime = 2.0
+EffectModifier = "Boost"
+EffectLength = 0.2
+EffectStrengh = 500.0
+Cooldown = 4.0
