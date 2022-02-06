@@ -6,10 +6,10 @@
 [ext_resource path="res://Bin/Textures/Items/drewnianymiecz.png" type="Texture" id=4]
 [ext_resource path="res://Bin/Scripts/Player/WeaponPosition.gd" type="Script" id=5]
 [ext_resource path="res://Bin/Scripts/Player/PlayerStats.gd" type="Script" id=6]
-[ext_resource path="res://Bin/Scripts/Abilites/Effect/EffectCastAbility.gd" type="Script" id=7]
+[ext_resource path="res://Bin/Scripts/Abilites/Effect/scripts/EffectCastAbility.gd" type="Script" id=7]
 [ext_resource path="res://Bin/Scripts/Abilites/Cast/Boulder.tres" type="Resource" id=8]
 [ext_resource path="res://Bin/Scenes/Abilites/CastAbility.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Bin/Scripts/Abilites/Effect/SpeedBoost.tres" type="Resource" id=11]
+[ext_resource path="res://Bin/Scripts/Abilites/Effect/HealthBoost.tres" type="Resource" id=10]
 
 [sub_resource type="RectangleShape2D" id=24]
 extents = Vector2( 7.5, 12.5 )
@@ -78,7 +78,7 @@ AbilityData = ExtResource( 8 )
 
 [node name="EffectCastAbility" type="Node" parent="Abilities"]
 script = ExtResource( 7 )
-AbilityData = ExtResource( 11 )
+AbilityData = ExtResource( 10 )
 
 [node name="CooldownTimer" type="Timer" parent="Abilities/EffectCastAbility"]
 one_shot = true

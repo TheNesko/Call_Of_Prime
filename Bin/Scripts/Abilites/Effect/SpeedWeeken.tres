@@ -4,12 +4,12 @@
 
 [resource]
 script = ExtResource( 1 )
-AbilityName = "Speed Boost"
+AbilityName = "Speed Weeken"
 StatEffect = "Speed"
 SelfEffect = false
-EffectAOE = 50.0
-EffectAOEtime = 1.0
-EffectModifier = "Boost"
-EffectLength = 2.0
-EffectStrengh = 150.0
-Cooldown = 3.0
+EffectAOE = 30.0
+EffectAOEtime = 0.5
+EffectModifier = "Weeken"
+EffectLength = 1.0
+EffectStrengh = 30.0
+Cooldown = 5.0
