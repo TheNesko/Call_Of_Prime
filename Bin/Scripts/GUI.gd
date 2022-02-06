@@ -33,6 +33,7 @@ func _Add_Item(data):
 	_Updata_Slots()
 
 func _remove_Item(slot):
+	if slot.ItemData == null: return
 	var ItemCopy = ItemBase.instance()
 	ItemCopy.ItemData = slot.ItemData
 	get_parent().get_parent().add_child(ItemCopy)

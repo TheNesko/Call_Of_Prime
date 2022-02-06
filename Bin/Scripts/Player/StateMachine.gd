@@ -25,7 +25,7 @@ func _process(delta) -> void:
 #	else:
 #		parent.Stats.Speed = parent.Stats.BaseSpeed
 	
-	if Input.is_key_pressed(KEY_F):
+	if Input.is_action_just_pressed("Interact"):
 		parent._Pick_Up_Item()
 	
 
