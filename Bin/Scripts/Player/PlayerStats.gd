@@ -11,6 +11,8 @@ export var MaxHealth = 100
 #=========Attacks===========
 export var Damage = 10
 export(float) var AttackSpeed = 3
+#=========Others===========
+export (int,0,35) var BaseInventorySlots = 15
 
 
 onready var ActiveEffects = get_parent().find_node("ActiveEffects")

@@ -1,6 +1,7 @@
 extends Control
 
 
+onready var PlayerStats = get_parent().get_parent().find_node("Player").find_node("Stats")
 onready var Inventory = $Inventory
 onready var InventorySlots = $Inventory/InventoryPanel/TextureRect/InventorySlots.get_children()
 onready var Equipment = $Inventory/InventoryPanel/TextureRect/Equipment
@@ -8,7 +9,9 @@ onready var ItemBase = preload("res://Bin/Scenes/Items/ItemBase.tscn")
 const SlotOffset = Vector2(20,35)
 
 func _ready():
+	yield(get_tree().create_timer(0.1),"timeout")
 	_Update_Slots()
+	_Set_Inventory_Slots()
 
 func _input(event):
 	if Input.is_action_just_pressed("ui_home"):
@@ -66,6 +69,7 @@ func _Update_Slots():
 		x._Update()
 	for x in Equipment.get_children():
 		x._Update()
+	_Set_Inventory_Slots()
 
 var DragActive = false
 var DragingItem = null
@@ -81,7 +85,7 @@ func _Drag(slot):
 
 func _Drop(slot):
 	if DragingItem == null: return
-	if slot.Occupied == true:
+	if slot.Occupied == true or slot.get("Unlocked") == false:
 		_Insert_Item(PreviousItemSlot,DragingItem)
 	else:
 		if slot.get_parent() == Equipment:
@@ -128,3 +132,16 @@ func _get_closest_slot():
 			MousePos.distance_to(closest.get_global_transform_with_canvas().origin+SlotOffset)):
 			closest = x
 	return closest
+
+func _Set_Inventory_Slots():
+	var BaseSlots = PlayerStats.BaseInventorySlots
+	var EquipmentAddedSlots = 0
+	if Equipment.find_node("Backpack").ItemData != null:
+		EquipmentAddedSlots = Equipment.find_node("Backpack").ItemData.AddedInventorySlots
+	var UnlockedInventorySlots = BaseSlots + EquipmentAddedSlots
+	var InventoryGrid = $Inventory/InventoryPanel/TextureRect/InventorySlots
+	for slot in InventorySlots:
+		slot.Unlocked = false
+	for x in UnlockedInventorySlots:
+		InventoryGrid.get_child(x).Unlocked = true
+	print(UnlockedInventorySlots)

@@ -8,6 +8,7 @@ script = ExtResource( 1 )
 id = 1
 ItemName = "Wooden Sword"
 price = 10
+AddedInventorySlots = 0
 texture = ExtResource( 2 )
 EquipmentSlot = "RightHand"
 ItemDescription = "Just a wooden Sword nothing special about it
