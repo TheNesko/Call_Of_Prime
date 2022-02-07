@@ -1,0 +1,21 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Bin/Scripts/Items/ItemData.gd" type="Script" id=1]
+[ext_resource path="res://Bin/Textures/Items/plecak.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+ItemName = "Backpack"
+ConsoleName = "Backpack"
+EquipmentSlot = "Backpack"
+price = 50
+BonusInventorySlots = 10
+BonusDamage = 0
+BonusAtackSpeed = 0.0
+BonusBaseSpeed = 0
+BonusHealth = 0
+BonusMaxHealth = 0
+texture = ExtResource( 2 )
+ItemDescription = "Simple Manmade backpack
+
++10 Inventory slots"

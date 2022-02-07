@@ -1,0 +1,22 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Bin/Scripts/Items/ItemData.gd" type="Script" id=1]
+[ext_resource path="res://Bin/Textures/Items/Iron_Boots.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+ItemName = "Iron Boots"
+ConsoleName = "Iron_Boots"
+EquipmentSlot = "Boots"
+price = 50
+BonusInventorySlots = 0
+BonusDamage = 0
+BonusAtackSpeed = 0.0
+BonusBaseSpeed = 25
+BonusHealth = 0
+BonusMaxHealth = 20
+texture = ExtResource( 2 )
+ItemDescription = "Iron boots
+
++25 Speed
++20 Max health"

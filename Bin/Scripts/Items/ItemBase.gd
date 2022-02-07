@@ -2,12 +2,10 @@ extends KinematicBody2D
 tool
 
 export (Resource) var ItemData = null
-var id = 0 
 var Name = "null"
 
 func _ready():
 	if ItemData == null: return
-	id = ItemData.id
 	Name = ItemData.ItemName
 	self.name = Name
 	$Sprite.texture = ItemData.texture

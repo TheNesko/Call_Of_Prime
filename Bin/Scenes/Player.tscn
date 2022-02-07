@@ -9,7 +9,7 @@
 [ext_resource path="res://Bin/Scripts/Abilites/Effect/scripts/EffectCastAbility.gd" type="Script" id=7]
 [ext_resource path="res://Bin/Scripts/Abilites/Cast/Boulder.tres" type="Resource" id=8]
 [ext_resource path="res://Bin/Scenes/Abilites/CastAbility.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Bin/Scripts/Abilites/Effect/Dash.tres" type="Resource" id=10]
+[ext_resource path="res://Bin/Scripts/Abilites/Effect/SpeedBoost.tres" type="Resource" id=10]
 
 [sub_resource type="RectangleShape2D" id=24]
 extents = Vector2( 7.5, 12.5 )
@@ -20,6 +20,10 @@ height = 6.0
 
 [sub_resource type="RectangleShape2D" id=23]
 extents = Vector2( 34, 14.5783 )
+
+[sub_resource type="AtlasTexture" id=26]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=28]
 atlas = ExtResource( 2 )
@@ -37,21 +41,17 @@ region = Rect2( 96, 0, 32, 32 )
 atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=26]
-atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 32, 32 )
-
 [sub_resource type="SpriteFrames" id=17]
 animations = [ {
-"frames": [ SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 27 ) ],
-"loop": true,
-"name": "Walk",
-"speed": 8.0
-}, {
 "frames": [ SubResource( 26 ) ],
 "loop": false,
 "name": "Idle",
 "speed": 5.0
+}, {
+"frames": [ SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 27 ) ],
+"loop": true,
+"name": "Walk",
+"speed": 8.0
 } ]
 
 [sub_resource type="CircleShape2D" id=31]

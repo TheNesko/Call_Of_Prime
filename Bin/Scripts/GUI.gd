@@ -1,6 +1,7 @@
 extends Control
 
 
+onready var Player = get_parent().get_parent().find_node("Player")
 onready var PlayerStats = get_parent().get_parent().find_node("Player").find_node("Stats")
 onready var Inventory = $Inventory
 onready var InventorySlots = $Inventory/InventoryPanel/TextureRect/InventorySlots.get_children()
@@ -12,10 +13,14 @@ func _ready():
 	yield(get_tree().create_timer(0.1),"timeout")
 	_Update_Slots()
 	_Set_Inventory_Slots()
+	
+	connect("UpdatedSlots",PlayerStats,"_Apply_Equipment_Bonus")
 
 func _input(event):
 	if Input.is_action_just_pressed("ui_home"):
 		Inventory.visible = !Inventory.visible
+	if Input.is_action_just_pressed("ui_select"):
+		$CheatConsole.visible = !$CheatConsole.visible
 	if event is InputEventMouseButton and Inventory.visible == true:
 		if get_viewport().get_mouse_position().distance_to(
 			_get_closest_slot().get_global_transform_with_canvas().origin+SlotOffset) > 30: return
@@ -64,12 +69,14 @@ func _remove_Item(slot):
 	slot.Occupied = false
 	_Update_Slots()
 
+signal UpdatedSlots
 func _Update_Slots():
 	for x in InventorySlots:
 		x._Update()
 	for x in Equipment.get_children():
 		x._Update()
 	_Set_Inventory_Slots()
+	emit_signal("UpdatedSlots")
 
 var DragActive = false
 var DragingItem = null
@@ -137,11 +144,10 @@ func _Set_Inventory_Slots():
 	var BaseSlots = PlayerStats.BaseInventorySlots
 	var EquipmentAddedSlots = 0
 	if Equipment.find_node("Backpack").ItemData != null:
-		EquipmentAddedSlots = Equipment.find_node("Backpack").ItemData.AddedInventorySlots
+		EquipmentAddedSlots = Equipment.find_node("Backpack").ItemData.BonusInventorySlots
 	var UnlockedInventorySlots = BaseSlots + EquipmentAddedSlots
 	var InventoryGrid = $Inventory/InventoryPanel/TextureRect/InventorySlots
 	for slot in InventorySlots:
 		slot.Unlocked = false
 	for x in UnlockedInventorySlots:
 		InventoryGrid.get_child(x).Unlocked = true
-	print(UnlockedInventorySlots)

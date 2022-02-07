@@ -1,16 +1,21 @@
 [gd_resource type="Resource" load_steps=3 format=2]
 
-[ext_resource path="res://Bin/Scripts/Items/scripts/ItemData.gd" type="Script" id=1]
+[ext_resource path="res://Bin/Scripts/Items/ItemData.gd" type="Script" id=1]
 [ext_resource path="res://Bin/Textures/Items/Wodden_Sword.png" type="Texture" id=2]
 
 [resource]
 script = ExtResource( 1 )
-id = 1
-ItemName = "Wooden Sword"
-price = 10
-AddedInventorySlots = 0
-texture = ExtResource( 2 )
+ItemName = "Wooden_Sword"
+ConsoleName = "null"
 EquipmentSlot = "RightHand"
+price = 10
+BonusInventorySlots = 0
+BonusDamage = 10
+BonusAtackSpeed = -1.0
+BonusBaseSpeed = 0
+BonusHealth = 0
+BonusMaxHealth = 0
+texture = ExtResource( 2 )
 ItemDescription = "Just a wooden Sword nothing special about it
 
 +JD 100%"

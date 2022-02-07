@@ -4,7 +4,7 @@
 [ext_resource path="res://Bin/Scenes/WorldTiles.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Bin/Scenes/Dummy.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Bin/Scenes/Items/ItemBase.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Bin/Scripts/Items/WoodenSword.tres" type="Resource" id=5]
+[ext_resource path="res://Bin/Scripts/Items/ItemData/WoodenSword.tres" type="Resource" id=5]
 [ext_resource path="res://Bin/Scenes/GUI.tscn" type="PackedScene" id=6]
 
 [node name="GrassLand" type="Node2D"]

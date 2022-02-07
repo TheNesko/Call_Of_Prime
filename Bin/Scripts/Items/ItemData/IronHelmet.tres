@@ -1,0 +1,21 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Bin/Scripts/Items/ItemData.gd" type="Script" id=1]
+[ext_resource path="res://Bin/Textures/Items/Iron_Helmet.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+ItemName = "Iron Helmet"
+ConsoleName = "Iron_Helmet"
+EquipmentSlot = "Helmet"
+price = 25
+BonusInventorySlots = 0
+BonusDamage = 0
+BonusAtackSpeed = 0.0
+BonusBaseSpeed = 0
+BonusHealth = 0
+BonusMaxHealth = 25
+texture = ExtResource( 2 )
+ItemDescription = "Iron Helmet
+
++25 Max Health"
