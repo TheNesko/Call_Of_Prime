@@ -8,6 +8,7 @@ script = ExtResource( 1 )
 ItemName = "Wooden_Sword"
 ConsoleName = "null"
 EquipmentSlot = "RightHand"
+Use = "null"
 price = 10
 BonusInventorySlots = 0
 BonusDamage = 10

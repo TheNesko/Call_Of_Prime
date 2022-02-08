@@ -9,11 +9,11 @@ func _ready():
 	_Update()
 
 func _Update():
-	if ItemData != null:
-		$Sprite.texture = ItemData.texture
-	else:
-		$Sprite.texture = null
 	if Unlocked == false:
 		self_modulate.a = 0.3
 	else:
 		self_modulate.a = 0
+	if ItemData != null:
+		$Sprite.texture = ItemData.texture
+	else:
+		$Sprite.texture = null

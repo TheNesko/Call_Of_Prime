@@ -23,7 +23,7 @@ position = Vector2( -2, 271 )
 [node name="Dummy" parent="YSort" instance=ExtResource( 3 )]
 position = Vector2( -25, 270 )
 
-[node name="Wooden Sword" parent="." instance=ExtResource( 4 )]
+[node name="Wooden_Sword" parent="." instance=ExtResource( 4 )]
 position = Vector2( 99, 267 )
 collision_mask = 16384
 ItemData = ExtResource( 5 )

@@ -25,8 +25,14 @@ func _input(event):
 		if get_viewport().get_mouse_position().distance_to(
 			_get_closest_slot().get_global_transform_with_canvas().origin+SlotOffset) > 30: return
 		if Input.is_action_just_pressed("MOUSE_RIGHT"):
-			_remove_Item(_get_closest_slot())
+			#_remove_Item(_get_closest_slot())
+			if $Inventory/DropDownMenu.visible == true:
+				_Hide_Drop_Down_Menu()
+			else:
+				_Show_Drop_Down_Menu(_get_closest_slot(),event.position)
 		if Input.is_action_just_pressed("MOUSE_LEFT"):
+			if $Inventory/DropDownMenu.visible == true: return
+			#_Hide_Drop_Down_Menu()
 			match DragActive:
 				true:
 					_Drop(_get_closest_slot())
@@ -68,6 +74,19 @@ func _remove_Item(slot):
 	slot.ItemData = null
 	slot.Occupied = false
 	_Update_Slots()
+
+func _Replace_Items(ItemSlot,TargetSlot):
+	var ItemSlotData = ItemSlot.ItemData
+	var TargetSlotData = TargetSlot.ItemData
+	ItemSlot.Occupied = false
+	ItemSlot.ItemData = null
+	TargetSlot.Occupied = false
+	TargetSlot.ItemData = null
+	if ItemSlotData != null:
+		_Insert_Item(TargetSlot,ItemSlotData)
+	if TargetSlotData != null:
+		_Insert_Item(ItemSlot,TargetSlotData)
+
 
 signal UpdatedSlots
 func _Update_Slots():
@@ -151,3 +170,47 @@ func _Set_Inventory_Slots():
 		slot.Unlocked = false
 	for x in UnlockedInventorySlots:
 		InventoryGrid.get_child(x).Unlocked = true
+
+var SelectedItemSlot
+func _Show_Drop_Down_Menu(slot,position):
+	if slot.ItemData == null: 
+		_Hide_Drop_Down_Menu()
+		return
+	SelectedItemSlot = slot
+	if slot.ItemData.Use == "null": $Inventory/DropDownMenu/Container/UseButton.visible = false
+	else: $Inventory/DropDownMenu/Container/UseButton.visible = true
+	if slot.ItemData.EquipmentSlot == "null":
+		$Inventory/DropDownMenu/Container/EquipButton.visible = false
+	else: $Inventory/DropDownMenu/Container/EquipButton.visible = true
+	
+	$Inventory/DropDownMenu.rect_position = position
+	$Inventory/DropDownMenu.visible = true
+
+func _Hide_Drop_Down_Menu():
+	$Inventory/DropDownMenu.visible = false
+
+func _UseButton_pressed():
+	if SelectedItemSlot.ItemData == null: return
+	_Hide_Drop_Down_Menu()
+	match SelectedItemSlot.ItemData.Use:
+		"Heal":
+			SelectedItemSlot.ItemData._Heal(PlayerStats)
+			SelectedItemSlot.ItemData = null
+			SelectedItemSlot.Occupied = false
+	_Update_Slots()
+
+func _EquipButton_pressed():
+	if SelectedItemSlot.ItemData == null: return
+	_Hide_Drop_Down_Menu()
+	for x in Equipment.get_children():
+		if x.name == SelectedItemSlot.ItemData.EquipmentSlot:
+			_Replace_Items(SelectedItemSlot,x)
+			break
+
+func _UnequipButton_pressed():
+	pass # Replace with function body.
+
+func _DropButton_pressed():
+	if SelectedItemSlot.ItemData == null: return
+	_Hide_Drop_Down_Menu()
+	_remove_Item(SelectedItemSlot)
